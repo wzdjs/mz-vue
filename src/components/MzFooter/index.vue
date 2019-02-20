@@ -1,0 +1,36 @@
+<template>
+  <footer class="mz-footer">
+    底部选项对象
+  </footer>
+</template>
+
+<style lang="less">
+.mz-footer {
+  height: 48px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #797d82;
+    text-decoration: none;
+
+    i {
+      font-size: 21px;
+    }
+
+    // 当前被激活的 a
+    &.a {
+      color: #ff5f16;
+    }
+  }
+}
+</style>
