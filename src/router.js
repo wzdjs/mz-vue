@@ -17,33 +17,46 @@ import Film from './views/Film.vue';
 import Cinema from './views/Cinema.vue';
 import Center from './views/Center.vue';
 import City from './views/City.vue';
-// import Home from './views/Home.vue';
+import Home from './views/Home.vue';
 Vue.use(VueRouter);
 
 let router = new VueRouter({
 
   routes: [
-    // {
-    //   path: './home',
-    //   component: Home,
-    //   children: [
     {
-      path: '/films', // 就是url路径
-      component: Film
-    },
-    {
-      path: '/cinemas',
-      component: Cinema
-    },
-    {
-      path: '/center',
-      component: Center
-      //   }
-      // ]
+      path: '/',
+      component: Home,
+      children: [
+        // 不是一级路由。path路劲前面不要加/
+        {
+          path: 'films', // 就是url路径
+          component: Film
+        },
+        {
+          path: 'cinemas',
+          component: Cinema
+        },
+        {
+          path: 'center',
+          component: Center
+        },
+        // 默认显示的页面
+        // redirect地址从定向
+        {
+          path: '',
+          redirect: '/films'
+        }
+      ]
     },
     {
       path: '/city',
       component: City
+    },
+    {
+      // 通配符显示的页面（错误的地址）
+      // redirect地址从定向
+      path: '*',
+      redirect: '/films'
     }
   ]
 })
