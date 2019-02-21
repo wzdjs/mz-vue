@@ -1,6 +1,14 @@
 <template>
   <footer class="mz-footer">
-    底部选项对象
+    <router-link to="/films" active-class="a">
+      <i class="iconfont icon-films"></i>电影
+    </router-link>
+    <router-link to="/cinemas" active-class="a">
+      <i class="iconfont icon-cinemas"></i>影院
+    </router-link>
+    <router-link to="/center" active-class="a">
+      <i class="iconfont icon-center"></i>我的
+    </router-link>
   </footer>
 </template>
 

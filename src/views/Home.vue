@@ -2,13 +2,12 @@
 <template>
   <div>
     <!-- 这里得要有个坑，去显示  film cinema center -->
-    <router-view></router-view>
     <MzFooter></MzFooter>
   </div>
 </template>
 
 <script>
-import MzFooter from '../components/MzFooter/Index.vue';
+import MzFooter from '@/components/MzFooter/index.vue';
 
 export default {
   components: {
