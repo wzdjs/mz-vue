@@ -18,10 +18,11 @@ import Cinema from './views/Cinema.vue';
 import Center from './views/Center.vue';
 import City from './views/City.vue';
 import Home from './views/Home.vue';
+import Detail from './views/Detail.vue';
 Vue.use(VueRouter);
 
 let router = new VueRouter({
-
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -49,8 +50,15 @@ let router = new VueRouter({
       ]
     },
     {
+      // 城市页面
+      name: 'PgCity',
       path: '/city',
       component: City
+    },
+    {
+      // 详情页面
+      path: '/detail/:id',
+      component: Detail
     },
     {
       // 通配符显示的页面（错误的地址）
