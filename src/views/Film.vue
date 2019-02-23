@@ -9,6 +9,7 @@
       <router-link tag="li" to="detail/33">流浪地球</router-link >
       <router-link tag="li" to="detail/44">疯狂外星人</router-link >
     </ul>
+    <div style="height: 2000px;"></div>
   </div>
 
 </template>

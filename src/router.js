@@ -15,16 +15,16 @@ import 'nprogress/nprogress.css';
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Film from './views/Film.vue';
-import Cinema from './views/Cinema.vue';
-import Center from './views/Center.vue';
-import City from './views/City.vue';
-import Home from './views/Home.vue';
-import Detail from './views/Detail.vue';
-import Login from './views/Login.vue';
-import Card from './views/Card.vue';
-import Money from './views/Money.vue';
-import System from './views/System.vue';
+// import Film from './views/Film.vue';
+// import Cinema from './views/Cinema.vue';
+// import Center from './views/Center.vue';
+// import City from './views/City.vue';
+// import Home from './views/Home.vue';
+// import Detail from './views/Detail.vue';
+// import Login from './views/Login.vue';
+// import Card from './views/Card.vue';
+// import Money from './views/Money.vue';
+// import System from './views/System.vue';
 
 NProgress.configure({ showSpinner: false });
 
@@ -32,23 +32,29 @@ Vue.use(VueRouter);
 
 let router = new VueRouter({
   mode: 'hash',
+  scrollBehavior (to, from, savedPosition) {
+    return {
+      x: 0,
+      y: 0
+    }
+  },
   routes: [
     {
       path: '/',
-      component: Home,
+      component: () => import('./views/Home.vue'),
       children: [
         // 不是一级路由。path路劲前面不要加/
         {
           path: 'films', // 就是url路径
-          component: Film
+          component: () => import('./views/Film.vue')
         },
         {
           path: 'cinemas',
-          component: Cinema
+          component: () => import('./views/Cinema.vue')
         },
         {
           path: 'center',
-          component: Center
+          component: () => import('./views/Center.vue')
         },
         // 默认显示的页面
         // redirect地址从定向
@@ -62,20 +68,17 @@ let router = new VueRouter({
       // 城市页面
       name: 'PgCity',
       path: '/city',
+      // 别名
       alias: '/ccc',
       // component: City
-      components: {
-        top: City,
-        default: Detail
-      }
-
+      components: () => import('./views/City.vue')
     },
     {
       // 详情页面
       path: '/detail/:id',
-      component: Detail,
+      component: () => import('./views/Detail.vue')
       // 路由组件传参
-      props: true
+      // props: true
     },
     {
       // 通配符显示的页面（错误的地址）
@@ -137,19 +140,19 @@ let router = new VueRouter({
 
     {
       path: '/card',
-      component: Card
+      component: () => import('./views/Card.vue')
     },
     {
       path: '/money',
-      component: Money
+      component: () => import('./views/Money.vue')
     },
     {
       path: '/system',
-      component: System
+      component: () => import('./views/System.vue')
     },
     {
       path: '/login',
-      component: Login
+      component: () => import('./views/Login.vue')
     }
     // {
     //   path: '/card',
