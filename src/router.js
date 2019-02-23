@@ -22,6 +22,9 @@ import City from './views/City.vue';
 import Home from './views/Home.vue';
 import Detail from './views/Detail.vue';
 import Login from './views/Login.vue';
+import Card from './views/Card.vue';
+import Money from './views/Money.vue';
+import System from './views/System.vue';
 
 NProgress.configure({ showSpinner: false });
 
@@ -80,7 +83,7 @@ let router = new VueRouter({
       path: '*',
       redirect: '/films'
     },
-    {
+    /*  {
       path: '/card/:asd',
       component: {
         render (h) {
@@ -129,6 +132,15 @@ let router = new VueRouter({
         //   next(false);
         // }
       }
+    }, */
+    ,
+    {
+      path: '/card',
+      component: {
+        render (h) {
+          return h('div', '卖座卡页面')
+        }
+      }
     },
     {
       path: '/money',
@@ -136,7 +148,7 @@ let router = new VueRouter({
         render (h) {
           return h('div', '余额页面')
         }
-      }
+      } 
     },
     {
       path: '/system',
@@ -150,23 +162,35 @@ let router = new VueRouter({
       path: '/login',
       component: Login
     }
+    // {
+    //   path: '/card',
+    //   component: Card
+    // },
+    // {
+    //   path: '/money',
+    //   component: Money
+    // },
+    // {
+    //   path: '/system',
+    //   component: System
+    // }
   ]
 })
 
 // 全局前置守卫
 // next 是否允许去 next()不用或者传入false就不去跳转（拦截），如果想调到某个页面只要传入对应页面的路由就可以了，不传npm 参数就是允许跳转，（不拦截）
-// router.beforeEach((to, from, next) => {
-//   NProgress.start();
-//   if (to.path === '/card' || to.path === '/money' || to.path === '/system') {
-//     // next(false);
-//     next('/login');
-//   } else {
-//     next();
-//   }
-// })
+router.beforeEach((to, from, next) => {
+  NProgress.start();
+  if (to.path === '/card' || to.path === '/money' || to.path === '/system') {
+    // next(false);
+    next('/login');
+  } else {
+    next();
+  }
+})
 
 // // 全局后置守卫
-// router.afterEach((to, from) => {
-//   NProgress.done();
-// })
+router.afterEach((to, from) => {
+  NProgress.done();
+})
 export default router;
