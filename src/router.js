@@ -132,31 +132,20 @@ let router = new VueRouter({
         //   next(false);
         // }
       }
-    }, */
-    ,
+    },
+    */
+
     {
       path: '/card',
-      component: {
-        render (h) {
-          return h('div', '卖座卡页面')
-        }
-      }
+      component: Card
     },
     {
       path: '/money',
-      component: {
-        render (h) {
-          return h('div', '余额页面')
-        }
-      } 
+      component: Money
     },
     {
       path: '/system',
-      component: {
-        render (h) {
-          return h('div', '设置页面')
-        }
-      }
+      component: System
     },
     {
       path: '/login',
@@ -181,9 +170,17 @@ let router = new VueRouter({
 // next 是否允许去 next()不用或者传入false就不去跳转（拦截），如果想调到某个页面只要传入对应页面的路由就可以了，不传npm 参数就是允许跳转，（不拦截）
 router.beforeEach((to, from, next) => {
   NProgress.start();
-  if (to.path === '/card' || to.path === '/money' || to.path === '/system') {
+  let list = ['/card', '/money', '/system'];
+  let nickname = sessionStorage.getItem('nickname');
+  if (list.indexOf(to.path) > -1 && !nickname) {
     // next(false);
-    next('/login');
+    next({
+      path: '/login',
+      // 当前页面的路由传参，方便客户跳转到想去的页面
+      query: {
+        redirect: to.fullPath
+      }
+    });
   } else {
     next();
   }
