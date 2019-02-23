@@ -81,11 +81,53 @@ let router = new VueRouter({
       redirect: '/films'
     },
     {
-      path: '/card',
+      path: '/card/:asd',
       component: {
         render (h) {
-          return h('div', '卖座卡页面')
+          let _this = this;
+          return h('div', [
+            '卖座卡页面',
+            h('button', {
+              on: {
+                click: function () {
+                  _this.reload();
+                }
+              }
+            },
+            [
+              'wo',
+              h('span', '水水水水')
+            ])
+          ])
+        },
+        methods: {
+          reload () {
+            // console.log('zzz');
+            // router.push('/card/ss');
+            router.push({
+              path: '/card/张三'
+            })
+          }
+        },
+        // 组件内的路由守卫
+        beforeRouteEnter (to, from, next) {
+          console.log('enter');
+          next();
+        },
+        // 只有页面使用了路由参数才会进来
+        beforeRouteUpdata (to, from, next) {
+          console.log('22222');
+          console.log('updata');
+          next();
+        },
+        beforeRouteLeave (to, from, next) {
+          console.log('leave');
+          next();
         }
+        // 路由独享的钩子函数
+        // beforeEnter: (to, from, next) => {
+        //   next(false);
+        // }
       }
     },
     {
@@ -112,19 +154,19 @@ let router = new VueRouter({
 })
 
 // 全局前置守卫
-// next 是否允许去 next()不用或者传入false就不去跳转（拦截），如果想调到某个页面只要传入对应页面的路由就可以了，不传参数就是允许跳转，（不拦截）
-router.beforeEach((to, from, next) => {
-  NProgress.start();
-  if (to.path === '/card' || to.path === '/money' || to.path === '/system') {
-    // next(false);
-    next('/login');
-  } else {
-    next();
-  }
-})
+// next 是否允许去 next()不用或者传入false就不去跳转（拦截），如果想调到某个页面只要传入对应页面的路由就可以了，不传npm 参数就是允许跳转，（不拦截）
+// router.beforeEach((to, from, next) => {
+//   NProgress.start();
+//   if (to.path === '/card' || to.path === '/money' || to.path === '/system') {
+//     // next(false);
+//     next('/login');
+//   } else {
+//     next();
+//   }
+// })
 
-// 全局后置守卫
-router.afterEach((to, from) => {
-  NProgress.done();
-})
+// // 全局后置守卫
+// router.afterEach((to, from) => {
+//   NProgress.done();
+// })
 export default router;
