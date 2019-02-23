@@ -26,8 +26,8 @@ export default {
       /*  path     字符串传参
        *  paeams    对象传参
        *  query     查询字符串传参
-       * name       根据name 传参
-       * path和params不可以一起使用
+       *  name       根据name 传参
+       *  path和params不可以一起使用
        */
       // this.$router.push('/city');
       this.$router.push({

@@ -22,7 +22,7 @@ import Detail from './views/Detail.vue';
 Vue.use(VueRouter);
 
 let router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   routes: [
     {
       path: '/',
@@ -53,12 +53,20 @@ let router = new VueRouter({
       // 城市页面
       name: 'PgCity',
       path: '/city',
-      component: City
+      alias: '/ccc',
+      // component: City
+      components: {
+        top: City,
+        default: Detail
+      }
+
     },
     {
       // 详情页面
       path: '/detail/:id',
-      component: Detail
+      component: Detail,
+      // 路由组件传参
+      props: true
     },
     {
       // 通配符显示的页面（错误的地址）
