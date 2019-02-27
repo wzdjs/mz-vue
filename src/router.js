@@ -71,7 +71,7 @@ let router = new VueRouter({
       // 别名
       alias: '/ccc',
       // component: City
-      components: () => import('./views/City.vue')
+      component: () => import('./views/City.vue')
     },
     {
       // 详情页面
@@ -86,58 +86,6 @@ let router = new VueRouter({
       path: '*',
       redirect: '/films'
     },
-    /*  {
-      path: '/card/:asd',
-      component: {
-        render (h) {
-          let _this = this;
-          return h('div', [
-            '卖座卡页面',
-            h('button', {
-              on: {
-                click: function () {
-                  _this.reload();
-                }
-              }
-            },
-            [
-              'wo',
-              h('span', '水水水水')
-            ])
-          ])
-        },
-        methods: {
-          reload () {
-            // console.log('zzz');
-            // router.push('/card/ss');
-            router.push({
-              path: '/card/张三'
-            })
-          }
-        },
-        // 组件内的路由守卫
-        beforeRouteEnter (to, from, next) {
-          console.log('enter');
-          next();
-        },
-        // 只有页面使用了路由参数才会进来
-        beforeRouteUpdata (to, from, next) {
-          console.log('22222');
-          console.log('updata');
-          next();
-        },
-        beforeRouteLeave (to, from, next) {
-          console.log('leave');
-          next();
-        }
-        // 路由独享的钩子函数
-        // beforeEnter: (to, from, next) => {
-        //   next(false);
-        // }
-      }
-    },
-    */
-
     {
       path: '/card',
       component: () => import('./views/Card.vue')
@@ -154,18 +102,6 @@ let router = new VueRouter({
       path: '/login',
       component: () => import('./views/Login.vue')
     }
-    // {
-    //   path: '/card',
-    //   component: Card
-    // },
-    // {
-    //   path: '/money',
-    //   component: Money
-    // },
-    // {
-    //   path: '/system',
-    //   component: System
-    // }
   ]
 })
 
