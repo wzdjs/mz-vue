@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import MzBanner from '../components/MzBanner/index';
-import MzTabs from '../components/MzTabs/index';
+import MzBanner from '@/components/MzBanner/index';
+import MzTabs from '@/components/MzTabs/index';
 export default {
   components: {
     MzBanner,

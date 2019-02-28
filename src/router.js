@@ -41,20 +41,20 @@ let router = new VueRouter({
   routes: [
     {
       path: '/',
-      component: () => import('./views/Home.vue'),
+      component: () => import('./views/Home/index.vue'),
       children: [
         // 不是一级路由。path路劲前面不要加/
         {
           path: 'films', // 就是url路径
-          component: () => import('./views/Film.vue')
+          component: () => import('./views/Film/index.vue')
         },
         {
           path: 'cinemas',
-          component: () => import('./views/Cinema.vue')
+          component: () => import('./views/Cinema/index.vue')
         },
         {
           path: 'center',
-          component: () => import('./views/Center.vue')
+          component: () => import('./views/Center/index.vue')
         },
         // 默认显示的页面
         // redirect地址从定向
@@ -71,12 +71,12 @@ let router = new VueRouter({
       // 别名
       alias: '/ccc',
       // component: City
-      component: () => import('./views/City.vue')
+      component: () => import('./views/City/index.vue')
     },
     {
       // 详情页面
       path: '/detail/:id',
-      component: () => import('./views/Detail.vue')
+      component: () => import('./views/Detail/index.vue')
       // 路由组件传参
       // props: true
     },
@@ -88,19 +88,19 @@ let router = new VueRouter({
     },
     {
       path: '/card',
-      component: () => import('./views/Card.vue')
+      component: () => import('./views/Card/index.vue')
     },
     {
       path: '/money',
-      component: () => import('./views/Money.vue')
+      component: () => import('./views/Money/index.vue')
     },
-    {
-      path: '/system',
-      component: () => import('./views/System.vue')
-    },
+    // {
+    //   path: '/system',
+    //   component: () => import('./views/System/index.vue')
+    // },
     {
       path: '/login',
-      component: () => import('./views/Login.vue')
+      component: () => import('./views/Login/index.vue')
     }
   ]
 })
