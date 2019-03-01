@@ -45,7 +45,8 @@
           height="20px"
           alt
         >
-        <span class="label">卖座卡</span>
+        <!-- <span class="label">卖座卡</span> -->
+        <router-link tag="span" to="/card" class="label">卖座卡</router-link>
         <img
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAkCAMAAABR74GsAAAAhFBMVEVHcEy+wMa+wcW+wMXR0dHFxcW9wcW///+9wMW9wca/w8a+wcbCwsa+wMW+w8e9wcW+wMe9wca+wsa/wce9wse+wMXAwMe9wcbBwci+wMW+wcW/xsa+wse/wsa+wsW+wca9wMa/wca+wMa+wca9wcW/1dW+wcbIyMi/wse+wsXCws69wMUGLikCAAAAK3RSTlMAgrXLCxblBPz1TGY23DfdnraBg2XPTcol6+okcXCNneSLt5yADMwXZEsVaXeoDQAAAJJJREFUKM+t0EcSgzAMQFEDBmx6OiW9J//+98te8iqDlm80428ZM8ccslVAzxDgC1AqzWNwW8V2B75R/K1h6BVPI7QvxZWH50Pxx8E1V/wGOp19ByLNtxl+k9aw0doG1CbgK/naAlwhVztgLTEClhJL4CSxcBDL6zQeEiuwH6BOA/Xj9H/9MVRvskC9MfssMnPPD39REI83eEhXAAAAAElFTkSuQmCC"
           alt
@@ -63,7 +64,8 @@
           height="20px"
           alt
         >
-        <span class="label">余额</span>
+        <!-- <span class="label">余额</span> -->
+        <router-link tag="span" to="money" class="label">余额</router-link>
         <span class="value">
           <span class="price-decimal price-fmt">
             <i>￥</i>
@@ -89,7 +91,9 @@
           height="20px"
           alt
         >
-        <span class="label">设置</span>
+        <!-- <span class="label">设置</span> -->
+      <router-link tag="span" to="system" class="label">设置</router-link>
+
         <img
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAkCAMAAABR74GsAAAAhFBMVEVHcEy+wMa+wcW+wMXR0dHFxcW9wcW///+9wMW9wca/w8a+wcbCwsa+wMW+w8e9wcW+wMe9wca+wsa/wce9wse+wMXAwMe9wcbBwci+wMW+wcW/xsa+wse/wsa+wsW+wca9wMa/wca+wMa+wca9wcW/1dW+wcbIyMi/wse+wsXCws69wMUGLikCAAAAK3RSTlMAgrXLCxblBPz1TGY23DfdnraBg2XPTcol6+okcXCNneSLt5yADMwXZEsVaXeoDQAAAJJJREFUKM+t0EcSgzAMQFEDBmx6OiW9J//+98te8iqDlm80428ZM8ccslVAzxDgC1AqzWNwW8V2B75R/K1h6BVPI7QvxZWH50Pxx8E1V/wGOp19ByLNtxl+k9aw0doG1CbgK/naAlwhVztgLTEClhJL4CSxcBDL6zQeEiuwH6BOA/Xj9H/9MVRvskC9MfssMnPPD39REI83eEhXAAAAAElFTkSuQmCC"
           alt

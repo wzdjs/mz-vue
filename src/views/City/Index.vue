@@ -11,7 +11,7 @@
             当前城市 -
         </div>
     </div>
-    <!-- <MzHeader :title="'前城市-'"></MzHeader> -->
+    <MzHeader></MzHeader>
 
     <div class="lv-indexlist">
       <ul class="lv-indexlist__content" id="lv-indexlist__content">
@@ -66,17 +66,14 @@
     </div>
   </div>
 </template>
-<style lang="less">
-@import url('./index.less');
-</style>
 
 <script>
-// import MzHeader from '@/components/MzHeader/index.vue';
+import MzHeader from '@/components/MzHeader/index.vue';
 import axios from 'axios';
 export default {
-  // comments: {
-  // MzHeader
-  // },
+  comments: {
+    MzHeader
+  },
   data () {
     return {
       // 城市数据
@@ -87,7 +84,7 @@ export default {
     // 处理后的城市数据
     filterCityData () {
       let hash = {};
-      // let i = 0;
+      let i = 0;
       let res = [];
       this.cityData.forEach(item => {
         // 存在   得首字母
@@ -99,11 +96,11 @@ export default {
           res[index].list.push(item);
         } else {
         // 不存在
-        // hash[filterLetter] = ++i;
-        // let obj = {};
-        // obj.py = filterLetter;
-        // obj.list = [item];
-        // res.push(obj);
+        hash[filterLetter] = ++i;
+        let obj = {};
+        obj.py = filterLetter;
+        obj.list = [item];
+        res.push(obj);
         }
       })
       let temp = res.sort((a, b) => {
@@ -142,3 +139,7 @@ export default {
   }
 };
 </script>
+
+<style lang="less">
+@import url('./index.less');
+</style>
