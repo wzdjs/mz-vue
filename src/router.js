@@ -46,15 +46,15 @@ let router = new VueRouter({
         // 不是一级路由。path路劲前面不要加/
         {
           path: 'films', // 就是url路径
-          component: () => import('./views/Film/index.vue')
+          component: () => import('./views/Home/Film/index.vue')
         },
         {
           path: 'cinemas',
-          component: () => import('./views/Cinema/index.vue')
+          component: () => import('./views/Home/Cinema/index.vue')
         },
         {
           path: 'center',
-          component: () => import('./views/Center/index.vue')
+          component: () => import('./views/Home/Center/index.vue')
         },
         // 默认显示的页面
         // redirect地址从定向

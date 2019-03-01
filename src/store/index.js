@@ -16,7 +16,7 @@ let store = new Vuex.Store({
   // 状态 - 项目中需要用的数据（需要在多个组件中使用的数据）
   state: {
     // 当前定位or切换的城市名称
-    curCityName: '',
+    curCityName: '深圳',
 
     // 城市列表数据
     cityData: []
@@ -76,8 +76,8 @@ let store = new Vuex.Store({
      * @param {Object} state 就是当前仓库的 state
      * @param {Object} payload 提交的载荷（参数）
      */
-    chgCityName (state, payload) {
-      state.curCityName = payload.name;
+    ReplaceCityName (state, name) {
+      state.curCityName = name;
     },
 
     /**

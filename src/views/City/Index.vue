@@ -8,10 +8,10 @@
         <i class="iconfont icon-tubiaoguifan2" style="font-size: 19px;">X</i>
         </div>
         <div class="title">
-            当前城市 -
+            当前城市 - {{ curCityName  }}
         </div>
     </div>
-    <MzHeader></MzHeader>
+    <!-- <MzHeader :title="'当前城市' + curcityName"></MzHeader> -->
 
     <div class="lv-indexlist">
       <ul class="lv-indexlist__content" id="lv-indexlist__content">
@@ -46,6 +46,7 @@
             <li
               v-for="city in item.list"
               :key="city.cityId"
+              @click="changeCity(city)"
               >
               {{ city.name }}
             </li>
@@ -68,14 +69,15 @@
 </template>
 
 <script>
-import MzHeader from '@/components/MzHeader/index.vue';
+// import MzHeader from '@/components/MzHeader/index.vue';
 import axios from 'axios';
 export default {
   comments: {
-    MzHeader
+    // MzHeader
   },
   data () {
     return {
+      // curCityName: '深圳',
       // 城市数据
       cityData: []
     };
@@ -96,11 +98,11 @@ export default {
           res[index].list.push(item);
         } else {
         // 不存在
-        hash[filterLetter] = ++i;
-        let obj = {};
-        obj.py = filterLetter;
-        obj.list = [item];
-        res.push(obj);
+          hash[filterLetter] = ++i;
+          let obj = {};
+          obj.py = filterLetter;
+          obj.list = [item];
+          res.push(obj);
         }
       })
       let temp = res.sort((a, b) => {
@@ -112,6 +114,10 @@ export default {
       return this.filterCityData.map(item => {
         return item.py;
       })
+    },
+    curCityName () {
+      // return this.curCityName;
+      return this.$store.state.curCityName;
     }
   },
   methods: {
@@ -132,6 +138,11 @@ export default {
       let top = document.getElementById('lv-indexlist__content').scrollTop
       top = el.offsetTop;
       console.log(top)
+    },
+    changeCity (city) {
+      // this.curCityName = city.name;
+      // this.$store.state.curCityName = city.name;xx
+      this.$store.commit('ReplaceCityName', city.name);
     }
   },
   created () {
